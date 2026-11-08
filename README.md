@@ -37,44 +37,30 @@
 
 ## 安装
 
-### 方式一：从 GitHub 安装
+### 方式一：用 DSH 插件管理器安装（推荐）
 
 在 DSH 的插件管理页面（侧栏的「插件」页）点安装，填入仓库地址：
 
 ```
-github:dsh-community/dsh-wallpaper
+github:turboYuu/dsh-wallpaper
 ```
 
-或者用命令行，把同样的地址交给 profile 的包管理器：
+或者用命令行，这一步会同时安装依赖并把组合包启用（写入 `dsh.profile.bundles`）：
 
 ```bash
-dsh plugin --profile desktop add github:dsh-community/dsh-wallpaper
+dsh plugin --profile desktop add github:turboYuu/dsh-wallpaper
 ```
 
-也可以直接用 pnpm：
+> 如果你用 `dsh web` 启动，把 `--profile desktop` 换成 `--profile web`。
 
-```bash
-cd ~/.dsh/profiles/desktop
-pnpm add github:dsh-community/dsh-wallpaper
-```
-
-### 方式二：从 npm 安装（发布后）
+### 方式二：手动用 pnpm 安装
 
 ```bash
 cd ~/.dsh/profiles/desktop
-pnpm add dsh-wallpaper
+pnpm add github:turboYuu/dsh-wallpaper
 ```
 
-### 方式三：从本地目录链接安装
-
-适合改代码的时候。把仓库克隆到任意位置，让 profile 以 `link:` 方式依赖它：
-
-```bash
-cd ~/.dsh/profiles/desktop
-pnpm add link:/absolute/path/to/dsh-wallpaper
-```
-
-再在 profile 的 `package.json` 里把包名追加到 `dsh.profile.bundles` 列表末尾：
+`pnpm add` 只把包写进 `dependencies`，不会自动启用组合包；你还需要在 profile 的 `package.json` 里把包名追加到 `dsh.profile.bundles` 列表末尾：
 
 ```json
 {
@@ -89,7 +75,25 @@ pnpm add link:/absolute/path/to/dsh-wallpaper
 }
 ```
 
-`link:` 安装的包，改完源码需要重启 DSH 才会重新加载宿主半；浏览器半在下次刷新页面时生效。
+### 方式三：从本地目录链接安装
+
+适合改代码的时候。把仓库克隆到任意位置，让 profile 以 `link:` 方式依赖它：
+
+```bash
+cd ~/.dsh/profiles/desktop
+pnpm add link:/absolute/path/to/dsh-wallpaper
+```
+
+同样需要把 `dsh-wallpaper` 追加到 `dsh.profile.bundles`（见方式二）。`link:` 安装的包，改完源码需要重启 DSH 才会重新加载宿主半；浏览器半在下次刷新页面时生效。
+
+### 方式四：从 npm 安装（发布后）
+
+```bash
+cd ~/.dsh/profiles/desktop
+pnpm add dsh-wallpaper
+```
+
+同样需要把 `dsh-wallpaper` 追加到 `dsh.profile.bundles`。
 
 ### 装完之后
 

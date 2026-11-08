@@ -55,11 +55,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dsh-community/dsh-wallpaper.git"
+    "url": "git+https://github.com/turboYuu/dsh-wallpaper.git"
   },
   "bugs": {
-    "url": "https://github.com/dsh-community/dsh-wallpaper/issues"
+    "url": "https://github.com/turboYuu/dsh-wallpaper/issues"
   },
-  "homepage": "https://github.com/dsh-community/dsh-wallpaper#readme",
+  "homepage": "https://github.com/turboYuu/dsh-wallpaper#readme",
   "license": "MIT"
 }
