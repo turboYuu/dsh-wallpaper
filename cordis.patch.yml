@@ -1,0 +1,5 @@
+# 背景图插件 bundle：一条宿主行，宿主半负责把背景配置写盘，
+# 浏览器半（package.json 的 dsh.client 声明）负责侧栏入口、面板与背景层。
+- insert:
+    - id: wallpaper
+      name: 'dsh-wallpaper'

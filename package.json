@@ -1,0 +1,65 @@
+{
+  "name": "dsh-wallpaper",
+  "version": "0.1.0",
+  "description": "为 DeepSeek Harness 设置自定义背景图：在左侧栏打开面板，选择一张图片并通过滑块调节透明度，语言跟随 DSH 设置。",
+  "type": "module",
+  "icon": "icon.svg",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./icon": "./icon.svg",
+    "./locale/en.json": "./locale/en.json",
+    "./locale/zh.json": "./locale/zh.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "locale/*.json"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "react": ">=18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "plugin",
+    "wallpaper",
+    "background",
+    "theme",
+    "sidebar"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsh-community/dsh-wallpaper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dsh-community/dsh-wallpaper/issues"
+  },
+  "homepage": "https://github.com/dsh-community/dsh-wallpaper#readme",
+  "license": "MIT"
+}
